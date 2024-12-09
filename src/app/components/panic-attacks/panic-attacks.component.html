@@ -1,0 +1,23 @@
+<div class="panic-attack-cards">
+  <div *ngIf="panicAttacks.length !== 0">
+    <mat-card *ngFor="let attack of panicAttacks" class="panic-attack-card">
+      <mat-card-title>Panic Attack on {{ attack.timestamp  }}</mat-card-title>
+      <mat-card-content>
+        <div class="metrics-grid">
+          <div class="metric-row" *ngFor="let metric of attack.metrics | keyvalue">
+            <div class="metric-name">{{ metric.key }}</div>
+            <div class="metric-value">{{ metric.value }}</div>
+          </div>
+          <div class="criteria-row" *ngFor="let criterion of attack.criteria | keyvalue">
+            <div class="criteria-name">{{ criterion.key }}</div>
+            <div class="criteria-value">{{ criterion.value }}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="panicAttacks.length === 0">
+    No available data!
+  </div>
+
+</div>

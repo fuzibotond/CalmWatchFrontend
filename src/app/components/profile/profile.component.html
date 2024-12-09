@@ -1,0 +1,15 @@
+<p>Profile works</p>
+
+<div *ngIf="profileData">
+    <h2>{{ profileData.username }}</h2>
+    <p>Sleep: {{ profileData.activity_stats.sleep }}</p>
+    <p>Heart Rate: {{ profileData.activity_stats.heart_rate }}</p>
+    <p>Breathing Rate: {{ profileData.activity_stats.breathing_rate }}</p>
+    <button mat-button (click)="login()">Login</button>
+    <h3>Recent Activities</h3>
+    <ul>
+      <li *ngFor="let activity of profileData.recent_activities">
+        {{ activity.type }}: {{ activity.duration || activity.bpm + ' BPM' }}
+      </li>
+    </ul>
+  </div>
